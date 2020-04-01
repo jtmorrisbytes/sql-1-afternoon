@@ -29,22 +29,29 @@ INSERT INTO person (person_name, city, age, height_cm, favorite_color) VALUES ('
 INSERT INTO person (person_name, city, age, height_cm, favorite_color) VALUES ('Lemmy Neat', 'Dolní Cerekev', 61, 580, 'Yellow');
 INSERT INTO person (person_name, city, age, height_cm, favorite_color) VALUES ('Dierdre Whatman', 'Phôngsali', 37, 296, 'Red');
 
--- 2.
-SELECT * FROM person order by height_cm DESC;
 -- 3.
-SELECT * FROM person ORDER BY height_cm ASC;
+SELECT * FROM person order by height_cm DESC;
 -- 4.
-SELECT * FROM person  ORDER BY age DESC;
+SELECT * FROM person ORDER BY height_cm ASC;
 -- 5.
-SELECT * FROM person WHERE age > 20;
+SELECT * FROM person  ORDER BY age DESC;
 -- 6.
-SELECT * FROM person WHERE age = 18;
+SELECT * FROM person WHERE age > 20;
 -- 7.
-SELECT * FROM person WHERE age < 20 AND age > 30;
+SELECT * FROM person WHERE age = 18;
 -- 8.
-SELECT * FROM person WHERE age != 27;
+SELECT * FROM person WHERE age < 20 AND age > 30;
 -- 9.
-SELECT * FROM person WHERE favorite_color not ILIKE 'red';
+SELECT * FROM person WHERE age != 27;
 -- 10.
+SELECT * FROM person WHERE favorite_color not ILIKE 'red';
+-- 11.
 SELECT * FROM person WHERE favorite_color not ILIKE 'red' and favorite_color not ILIKE 'blue';
+-- 12.
+SELECT * FROM person WHERE favorite_color ILIKE 'orange' or favorite_color ILIKE 'green';
+
+-- 13.
+SELECT * FROM person WHERE favorite_color in ('Orange', 'Green', 'Blue');
+-- 14.
+SELECT * FROM person WHERE favorite_color in ('Yellow', 'Green', 'Purple');
 --queries start here
