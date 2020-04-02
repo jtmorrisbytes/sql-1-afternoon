@@ -1,4 +1,8 @@
-CREATE TABLE orders (order_id SERIAL, person_id INT, product_name TEXT, product_price FLOAT, quantity INT
+CREATE TABLE orders (order_id SERIAL,
+ person_id INT,
+ product_name TEXT,
+ product_price FLOAT,
+ quantity INT
 
 );
 INSERT INTO orders (person_id, product_name, product_price, quantity)
@@ -13,6 +17,6 @@ SELECT * FROM orders;
 SELECT sum(quantity) FROM orders
 --5
 SELECT sum(quantity*product_price) FROM orders
-SELECT sum(quantity*product_price) FROM orders group by person_id
-select sum(quantity*product_name) from orders group by order_id
-select sum(quantity*product_name) from orders group by person_id
+SELECT sum(quantity*product_price) FROM orders GROUP BY person_id
+select sum(quantity*product_name) FROM orders GROUP BY order_id
+select sum(quantity*product_name) FROM orders GROUP BY person_id

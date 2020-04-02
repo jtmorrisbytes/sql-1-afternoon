@@ -40,10 +40,11 @@ let replaceList = [
   "and",
   "select",
   "where",
-  "insert",
+  "insert into",
   "update",
   "delete",
   "in",
+  "not",
   "from",
   "min(",
   "max(",
@@ -83,9 +84,16 @@ walk(__dirname).then(list => {
         } else {
           fileStr = data.toLocaleString();
           replaceList.forEach(item => {
+            let itemMatchSpace = ` ${item} `.replace("(", "\\(");
+            let itemMatchCommaExp = ` ${item},\r?\n?`.replace("(", "\\(");
+            let itemMatchComma = itemMatchCommaExp.replace(/\?/g, "");
             fileStr = fileStr.replace(
-              new RegExp(` ${item} `.replace("(", "\\("), "ig"),
-              ` ${item} `.toUpperCase()
+              new RegExp(itemMatchCommaExp, "ig"),
+              itemMatchComma.toUpperCase()
+            );
+            fileStr = fileStr.replace(
+              new RegExp(itemMatchSpace, "ig"),
+              itemMatchSpace.toUpperCase()
             );
           });
           try {
